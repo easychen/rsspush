@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rsspush:
+    image: easychen/rsspush
+    volumes:
+      - "./data:/rsspush/api/data"
+    environment:
+      - ADMIN_KEY=admin
+      - RSS_BASE=http://rsshub:1200
+      - TZ=Asia/Chongqing
+    ports:
+      - 8000:8000
+  rsshub:
+    image: diygod/rsshub
+    ports:
+      - 1200:1200
