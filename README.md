@@ -160,6 +160,14 @@ services:
 
 ![](image/20220903160540.png) 
 
+##### 如何推送到WebHook
+
+2022.09.04.09.28+ 以后的镜像支持推送到web hook。如果Sendkey以http开头，则被识别为一个webhook，RSSPush 会将更新信息以 FORM-ENCODED 编码方式 POST 到这个地址，包含以下信息：
+
+  1. title/text: 最新文章的标题
+  1. desp: 文章的详细内容
+  1. link: 文章的链接
+
 ### 使用RSSHub Feed生成助手
 
 RSSHub是一个包含了两千多个订阅源的RSS工具，为了方便大家添加有用的RSS源，我们整理了它的文档，并制作了一个可以搜索和选择，按提示填写参数后可以自动生成最终Feed的小工具。
