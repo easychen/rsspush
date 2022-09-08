@@ -182,8 +182,9 @@ RSSPush 会将更新信息以 FORM-ENCODED 编码方式 POST 到这个地址，�
   1. title/text: 最新文章的标题
   1. desp: 文章的详细内容
   1. link: 文章的链接
+  1. task_id: 任务ID
+  1. task_title: 任务标题
 
-  
 
 ### 使用RSSHub Feed生成助手
 
