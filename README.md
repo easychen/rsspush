@@ -184,7 +184,27 @@ RSSPush 会将更新信息以 FORM-ENCODED 编码方式 POST 到这个地址，�
   1. link: 文章的链接
   1. task_id: 任务ID
   1. task_title: 任务标题
+  
+##### 通过 Apprise 推送更新
 
+2022.09.10.05.31+ 以后的镜像支持通过 [Apprise](https://github.com/caronc/apprise) 推送更新消息到上百个通道，包括Telegram, Discord, Slack, Amazon SNS, Gotify等。
+
+如果sendkey 以 `apprise `（注意后边有一个半角空格） 开头，则被识别为一个 Apprise 命令。
+
+以 Telegram bot 为例，如果想通过 Apprise 推送，可在其仓库页面搜索 telegram，然后可以看到其命令格式为：
+
+```
+tgram://bottoken/ChatID
+tgram://bottoken/ChatID1/ChatID2/ChatIDN
+```
+
+点击同一行的 Telegram 链接，可以进入详细的配置页面，会告知如何获取`bottoken`和`ChatID`。得到对应的实际值后，可在Sendkey输入框加入一行
+
+```
+apprise tgram://bottoken/ChatID
+```
+
+RSSPush 会自动添加后边的 -t 和 -d 参数，因此不用再添加。其他参数可以查询 apprise 命令行获知。
 
 ### 使用RSSHub Feed生成助手
 
