@@ -206,6 +206,13 @@ apprise tgram://bottoken/ChatID
 
 RSSPush 会自动添加后边的 -t 和 -d 参数，因此不用再添加。其他参数可以查询 apprise 命令行获知。
 
+默认情况下，这里向 Apprise 推送的 RSS 内容为转义后的 Markdown 格式。如需推送原始的内容（多为HTML），可使用 `apprise:raw` 命令（ 镜像 2022.09.15.13.30+ 支持），如：
+
+```
+apprise:raw tgram://bottoken/ChatID
+```
+
+
 ### 使用RSSHub Feed生成助手
 
 RSSHub是一个包含了两千多个订阅源的RSS工具，为了方便大家添加有用的RSS源，我们整理了它的文档，并制作了一个可以搜索和选择，按提示填写参数后可以自动生成最终Feed的小工具。
