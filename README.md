@@ -201,17 +201,20 @@ tgram://bottoken/ChatID1/ChatID2/ChatIDN
 点击同一行的 Telegram 链接，可以进入详细的配置页面，会告知如何获取`bottoken`和`ChatID`。得到对应的实际值后，可在Sendkey输入框加入一行
 
 ```
-apprise tgram://bottoken/ChatID
+apprise -i markdown tgram://bottoken/ChatID
 ```
 
 RSSPush 会自动添加后边的 -t 和 -d 参数，因此不用再添加。其他参数可以查询 apprise 命令行获知。
 
-默认情况下，这里向 Apprise 推送的 RSS 内容为转义后的 Markdown 格式。如需推送原始的内容（多为HTML），可使用 `apprise:raw` 命令（ 镜像 2022.09.15.13.30+ 支持），如：
+其中 `-i` 参数指定了原始内容格式，如果你希望最终通知呈现想要的结果，请按 RSS 中的类型指定。默认为 `text`，可指定为 `html` 或者 `markdown` 
+
+默认情况下，RSSPush 向 Apprise 推送的 RSS 内容为转义后的 Markdown 格式。如需推送原始的内容（多为HTML），可使用 `apprise:raw` 命令（ 镜像 2022.09.15.13.30+ 支持），如：
 
 ```
-apprise:raw tgram://bottoken/ChatID
+apprise:raw -i html tgram://bottoken/ChatID
 ```
 
+这里依然需要按照 RSS 中原始内容格式来进行指定，因此使用 `-i html`。
 
 ### 使用RSSHub Feed生成助手
 
