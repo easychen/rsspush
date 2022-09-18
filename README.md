@@ -1,6 +1,6 @@
 # RSSPush
 
-RSSPush 是一款 Web 应用，它可以监测RSS变动，并发送最新内容到微信
+RSSPush 是一款 Web 应用，它可以监测RSS变动，并发送最新内容到微信、Webhook 和 Telegram, Discord, Slack, Amazon SNS, Gotify 等数十个消息通道。
 
 ![](image/20220903172550.png)  
 
