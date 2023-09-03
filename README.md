@@ -2,6 +2,10 @@
 
 RSSPush 是一款 Web 应用，它可以监测RSS变动，并发送最新内容到微信、Webhook 和 Telegram, Discord, Slack, Amazon SNS, Gotify 等数十个消息通道。
 
+## 最近更新
+
+1. `2023.09.03.12.52`版本更新：支持了HTTP代理、支持黑白名单关键词、支持自动翻译Feed为中文
+
 ![](image/20220903172550.png)  
 
 ## 界面截图
@@ -11,7 +15,7 @@ RSSPush 是一款 Web 应用，它可以监测RSS变动，并发送最新内容�
 
 ### 添加RSS源
 
-![](image/20220903154905.png)  
+![](image/20230903201629.png)
 
 ### 管理RSS源
 
@@ -69,6 +73,8 @@ services:
       - ADMIN_KEY=admin
       - RSS_BASE=http://rsshub:1200
       - TZ=Asia/Chongqing
+      #- HTTP_PROXY=http://your-proxy-ip:1087
+      - OPENAI_KEY=fk...
     ports:
       - 8000:8000
   rsshub:
@@ -77,7 +83,14 @@ services:
       - 1200:1200
 ```
 
-你可以通过 `ADMIN_KEY`(管理密码)，`RSS_BASE`（RSSHUB工具中默认的服务器地址）对RSSPush进行调整。
+你可以通过环境变量对RSSPush进行调整：
+
+1. `ADMIN_KEY`：管理密码
+1. `RSS_BASE`：RSSHUB工具中默认的服务器地址
+1. `HTTP_PROXY`：fetch rss时可支持的HTTP代理，注意IP要容器内可以访问，不要用127.0.0.1这种环回地址
+1. `OPENAI_KEY`：OpenAI/API2D的Key，翻译会用到
+1. `OPENAI_API_BASE`：自定义OpenAI API的入口，不需要加 `/v1/...` 部分
+1. `TRANSLATE_MAX_LEN`：参与翻译的Markdown最大长度，默认为8000字符，超过部分截断
 
 默认情况下，docker-compose命令还部署了一个本地RSSHub（一个包含两千多个订阅源的RSS工具），以方便大家使用。
 
@@ -94,6 +107,8 @@ services:
       - ADMIN_KEY=admin
       - RSS_BASE=http://rsshub.app
       - TZ=Asia/Chongqing
+      #- HTTP_PROXY=http://your-proxy-ip:1087
+      - OPENAI_KEY=fk...
     ports:
       - 8000:8000
   rsshub:
@@ -117,6 +132,8 @@ services:
       - ADMIN_KEY=admin
       - RSS_BASE=http://rsshub.app
       - TZ=Asia/Chongqing
+      #- HTTP_PROXY=http://your-proxy-ip:1087
+      - OPENAI_KEY=fk...
     ports:
       - 8000:8000
 #   rsshub:

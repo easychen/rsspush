@@ -8,6 +8,8 @@ services:
       - ADMIN_KEY=admin
       - RSS_BASE=http://rsshub:1200
       - TZ=Asia/Chongqing
+      #- HTTP_PROXY=http://your-proxy-ip:1087
+      - OPENAI_KEY=fk...
     ports:
       - 8000:8000
   rsshub:
